@@ -18,8 +18,8 @@ age = st.number_input('Age', min_value=18, max_value=100, value=30)
 tenure = st.number_input('Tenure (years)', min_value=0, max_value=10, value=1)
 balance = st.number_input('Balance', min_value=0, value=5000)
 num_of_products = st.number_input('Number of Products', min_value=1, max_value=4, value=1)
-geography = st.selectbox('Geography', ['France', 'Germany', 'Spain'])  # Adjust based on your dataset
-gender = st.selectbox('Gender', ['Male', 'Female'])  # Adjust based on your dataset
+geography = st.selectbox('Geography', ['France', 'Germany', 'Spain'])
+gender = st.selectbox('Gender', ['Male', 'Female'])
 has_cr_card = st.selectbox('Has Credit Card', ['Yes', 'No'])
 is_active_member = st.selectbox('Is Active Member', ['Yes', 'No'])
 estimated_salary = st.number_input('Estimated Salary', min_value=0, value=50000)
