@@ -8,7 +8,17 @@ model = pd.read_pickle("../../model/churn_model.pkl")  # Update path to your mod
 # Streamlit app
 st.title('Churn Prediction App')
 
+# Display the details
+st.header("Inputs", divider=True)
+
 st.markdown('**Please insert the user details**')
+
+# Hardcoded averages (got from the dataset)
+# One approach is to change these values dynamically
+average_credit_score = 650
+average_balance = 76485
+average_num_of_products = 1.5
+average_estimated_salary = 100090
 
 
 # Input fields ('User' not used in the prediction)
@@ -50,25 +60,64 @@ if st.button('Check'):
     # Predict churn probability
     churn_prob = model['model'].predict_proba(input_df)[:, 1]
 
+    # Display the result
+    st.header("Result", divider=True)
+
     # Display the result in percentage with larger text
-    st.markdown(f"<h3>Churn Probability: {churn_prob[0] * 100:.2f}%</h3>", unsafe_allow_html=True)
+    st.markdown(f"<h5>Churn Probability: {churn_prob[0] * 100:.1f}%</h5>", unsafe_allow_html=True)
 
-    # Create the downloadable report
-    report = input_df.copy()
-    report['Churn Probability'] = churn_prob[0] * 100
-    report['User'] = user_name
+    # Display the details
+    st.header("Details", divider=True)
 
-    # Convert report to CSV in memory using BytesIO
-    csv = io.BytesIO()
-    report.to_csv(csv, index=False)
-    csv.seek(0)  # Move cursor back to the start so the file can be read
+    # Explanation
+    st.markdown('- This table compares five parameters—CreditScore, Balance, NumOfProducts, IsActiveMember, and EstimatedSalary—against their averages to determine whether a customer is worth retaining.')
+    st.markdown('- Generally, the more parameters a customer has that are above average, the more valuable they are to retain. High values across multiple key metrics often indicate a customer with significant potential or risk, making them a priority for retention efforts.')
 
-    # Create a downloadable button with user's name in the file name
-    file_name = f"churn_prediction_report_{user_name}.csv" if user_name else "churn_prediction_report.csv"
+    st.text("")
 
-    st.download_button(
-        label="Download Report",
-        data=csv,
-        file_name=file_name,
-        mime="text/csv"
-    )
+    # Create two columns for "Above Average" and "Below Average"
+    col1, col2, col3, col4, col5 = st.columns(5)
+
+    # Define a function to return a checkmark or a cross based on the condition
+    def check_above_below(value1, value2):
+        return "✅" if value1 > value2 else "❌"
+
+    # Display "Features" column
+    with col1:
+        st.markdown("**Features**")
+        st.write("Credit Score")
+        st.write("Balance")
+        st.write("Num. Products")
+        st.write("Estimated Salary")
+
+    # Display the "Input" column
+    with col2:
+        st.markdown("**Input**")
+        st.write(credit_score)
+        st.write(balance)
+        st.write(num_of_products)
+        st.write(estimated_salary)
+
+    # Display the "Average" column
+    with col3:
+        st.markdown("**Average**")
+        st.write(average_credit_score)
+        st.write(average_balance)
+        st.write(average_num_of_products)
+        st.write(average_estimated_salary)
+
+    # Display the "Above Average" column
+    with col4:
+        st.markdown ("**Above Average**")
+        st.write(f"{check_above_below(credit_score, average_credit_score)}")
+        st.write(f"{check_above_below(balance, average_balance)}")
+        st.write(f"{check_above_below(num_of_products, average_num_of_products)}")
+        st.write(f"{check_above_below(estimated_salary, average_estimated_salary)}")
+
+    # Display the "Below Average" column
+    with col5:
+        st.markdown ("**Below Average**")
+        st.write(f"{check_above_below(average_credit_score, credit_score)}")
+        st.write(f"{check_above_below(average_balance, balance)}")
+        st.write(f"{check_above_below(average_num_of_products, num_of_products)}")
+        st.write(f"{check_above_below(average_estimated_salary, estimated_salary)}")
