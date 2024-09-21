@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/295567229866732935/eb8f83fcd7c341f68679f2beaebbd1db/artifacts
+end_time: 1726089869252
+entry_point_name: ''
+experiment_id: '295567229866732935'
+lifecycle_stage: active
+run_id: eb8f83fcd7c341f68679f2beaebbd1db
+run_name: loud-mule-40
+run_uuid: eb8f83fcd7c341f68679f2beaebbd1db
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1726089586726
+status: 3
+tags: []
+user_id: Tagui

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/295567229866732935/d4af52774023425d9070e3c4deb5be0c/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '295567229866732935'
+lifecycle_stage: active
+run_id: d4af52774023425d9070e3c4deb5be0c
+run_name: adventurous-kit-384
+run_uuid: d4af52774023425d9070e3c4deb5be0c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1725763041820
+status: 1
+tags: []
+user_id: Tagui

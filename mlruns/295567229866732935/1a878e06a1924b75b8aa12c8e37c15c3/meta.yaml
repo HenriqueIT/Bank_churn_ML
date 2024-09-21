@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/295567229866732935/1a878e06a1924b75b8aa12c8e37c15c3/artifacts
+end_time: 1726090554649
+entry_point_name: ''
+experiment_id: '295567229866732935'
+lifecycle_stage: active
+run_id: 1a878e06a1924b75b8aa12c8e37c15c3
+run_name: resilient-wren-648
+run_uuid: 1a878e06a1924b75b8aa12c8e37c15c3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1726090237407
+status: 3
+tags: []
+user_id: Tagui

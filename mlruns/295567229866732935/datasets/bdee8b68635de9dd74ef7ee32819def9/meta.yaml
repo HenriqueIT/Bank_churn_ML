@@ -1,0 +1,13 @@
+digest: f0c440eb
+name: dataset
+profile: '{"num_rows": 12740, "num_elements": 127400}'
+schema: '{"mlflow_colspec": [{"type": "long", "name": "CreditScore", "required": true},
+  {"type": "long", "name": "Age", "required": true}, {"type": "long", "name": "Tenure",
+  "required": true}, {"type": "double", "name": "Balance", "required": true}, {"type":
+  "long", "name": "NumOfProducts", "required": true}, {"type": "string", "name": "Geography",
+  "required": true}, {"type": "string", "name": "Gender", "required": true}, {"type":
+  "long", "name": "HasCrCard", "required": true}, {"type": "long", "name": "IsActiveMember",
+  "required": true}, {"type": "double", "name": "EstimatedSalary", "required": true}]}'
+source: '{"tags": {"mlflow.user": "Tagui", "mlflow.source.name": "c:\\Python_projects\\bank_churn_analysis_project\\churn_env\\Lib\\site-packages\\ipykernel_launcher.py",
+  "mlflow.source.type": "LOCAL"}}'
+source_type: code

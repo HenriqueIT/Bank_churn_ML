@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/295567229866732935/52603c24e5cc4eab9313b62bdcf07d4e/artifacts
+end_time: 1725762373331
+entry_point_name: ''
+experiment_id: '295567229866732935'
+lifecycle_stage: active
+run_id: 52603c24e5cc4eab9313b62bdcf07d4e
+run_name: zealous-calf-654
+run_uuid: 52603c24e5cc4eab9313b62bdcf07d4e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1725762275662
+status: 4
+tags: []
+user_id: Tagui

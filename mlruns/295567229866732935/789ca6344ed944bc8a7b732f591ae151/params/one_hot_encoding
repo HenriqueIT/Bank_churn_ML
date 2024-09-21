@@ -1,0 +1,1 @@
+OneHotEncoder(drop_last=True, variables=['Geography', 'Gender'])

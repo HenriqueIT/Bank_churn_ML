@@ -1,4 +1,3 @@
-import io
 import streamlit as st
 import pandas as pd
 
@@ -13,26 +12,27 @@ st.header("Inputs", divider=True)
 
 st.markdown('**Please insert the user details**')
 
-# Hardcoded averages (got from the dataset)
-# One approach is to change these values dynamically
-average_credit_score = 650
-average_balance = 76485
-average_num_of_products = 1.5
-average_estimated_salary = 100090
-
 
 # Input fields ('User' not used in the prediction)
-user_name = st.text_input('User')
 credit_score = st.number_input('Credit Score',value=600)
 age = st.number_input('Age', value=30)
 tenure = st.number_input('Tenure (years)', min_value=0, value=1)
-balance = st.number_input('Balance', min_value=0, value=5000)
+balance = st.number_input('Balance', min_value=0, value=50000)
 num_of_products = st.number_input('Number of Products', value=1)
 geography = st.selectbox('Geography', ['France', 'Germany', 'Spain'])
 gender = st.selectbox('Gender', ['Male', 'Female'])
 has_cr_card = st.selectbox('Has Credit Card', ['Yes', 'No'])
 is_active_member = st.selectbox('Is Active Member', ['Yes', 'No'])
-estimated_salary = st.number_input('Estimated Salary', min_value=0, value=50000)
+estimated_salary = st.number_input('Estimated Salary', min_value=0, value=100000)
+
+# Hardcoded averages (got from the dataset)
+# One approach is to change these values dynamically
+data = pd.read_csv("../../data/Churn_Modelling.csv")
+
+average_credit_score = round(data.loc[data['Geography'] == geography]['CreditScore'].mean(),1)
+average_balance = round(data.loc[data['Geography'] == geography]['Balance'].mean(),1)
+average_num_of_products = round(data.loc[data['Geography'] == geography]['NumOfProducts'].mean(),1)
+average_estimated_salary = round(data.loc[data['Geography'] == geography]['EstimatedSalary'].mean(),1)
 
 # More user-friendly input for binary fields
 has_cr_card = 1 if has_cr_card == 'Yes' else 0
@@ -70,8 +70,9 @@ if st.button('Check'):
     st.header("Details", divider=True)
 
     # Explanation
-    st.markdown('- This table compares five parameters—CreditScore, Balance, NumOfProducts, IsActiveMember, and EstimatedSalary—against their averages to determine whether a customer is worth retaining.')
-    st.markdown('- Generally, the more parameters a customer has that are above average, the more valuable they are to retain. High values across multiple key metrics often indicate a customer with significant potential or risk, making them a priority for retention efforts.')
+    st.markdown('- This table compares four parameters— **CreditScore, Balance, NumOfProducts, and EstimatedSalary against their averages** to determine whether a customer is worth retaining.')
+    st.markdown('- Generally, the more parameters a customer has that are above average, the more valuable they are to retain.')
+    st.markdown('-  High values across multiple key metrics often indicate a customer with significant potential or risk, making them a **priority for retention efforts**.')
 
     st.text("")
 
@@ -100,7 +101,7 @@ if st.button('Check'):
 
     # Display the "Average" column
     with col3:
-        st.markdown("**Average**")
+        st.markdown(f"**Avg.  in {geography}**")
         st.write(average_credit_score)
         st.write(average_balance)
         st.write(average_num_of_products)

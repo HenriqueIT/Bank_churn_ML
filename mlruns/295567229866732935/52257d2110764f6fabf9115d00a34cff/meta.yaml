@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/295567229866732935/52257d2110764f6fabf9115d00a34cff/artifacts
+end_time: 1725763030962
+entry_point_name: ''
+experiment_id: '295567229866732935'
+lifecycle_stage: active
+run_id: 52257d2110764f6fabf9115d00a34cff
+run_name: resilient-hare-531
+run_uuid: 52257d2110764f6fabf9115d00a34cff
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1725763024968
+status: 4
+tags: []
+user_id: Tagui
