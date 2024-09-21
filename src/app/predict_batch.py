@@ -44,10 +44,6 @@ def batch_prediction_page():
             # Load the model
             model = load_model()
 
-            # Convert categorical columns if needed (optional)
-            data['HasCrCard'] = data['HasCrCard'].apply(lambda x: 1 if x == 'Yes' else 0)
-            data['IsActiveMember'] = data['IsActiveMember'].apply(lambda x: 1 if x == 'Yes' else 0)
-
             # Predict churn probabilities
             data['churn_prob'] = (model['model'].predict_proba(data[required_columns])[:, 1])*100
 
