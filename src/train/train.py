@@ -1,11 +1,10 @@
 # %%
 # Basic libraries
 import datetime
-import numpy as np
 import pandas as pd
+import mlflow
 
 # Data processing
-from sklearn.preprocessing import OneHotEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.utils import resample
 from sklearn.pipeline import Pipeline
@@ -13,7 +12,7 @@ from feature_engine import encoding
 
 # Modelling
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score, roc_auc_score, roc_curve, f1_score, precision_score, recall_score
+from sklearn.metrics import accuracy_score, roc_auc_score, f1_score, precision_score, recall_score
 
 
 # Read the dataset
@@ -53,35 +52,44 @@ X_train, X_test, y_train, y_test = train_test_split(X_bal,
                                                     )
 
 # %%
-# Perform onehot encoding on categorical columns
-col_categorical = ['Geography', 'Gender']
-
-onehot_enc = encoding.OneHotEncoder(drop_last=True,
-                                    variables= col_categorical)
-
-forest_model = RandomForestClassifier(n_estimators= 50, 
-                                      min_samples_split= 2, 
-                                      max_features=5)
-
-model_pipe = Pipeline([('one_hot_encoding', onehot_enc),
-                           ('random_forest', forest_model)])
+mlflow.set_tracking_uri(uri="http://127.0.0.1:8080")
+mlflow.set_experiment(experiment_id=295567229866732935)
+mlflow.autolog()
 
 # %%
-model_pipe.fit(X_train, y_train)
+with mlflow.start_run():
+
+    # Perform onehot encoding on categorical columns
+    col_categorical = ['Geography', 'Gender']
+    onehot_enc = encoding.OneHotEncoder(drop_last=True,
+                                        variables=col_categorical)
+
+    # Select RandomForest as a model
+    forest_model = RandomForestClassifier(n_estimators= 50, 
+                                        min_samples_split= 2, 
+                                        max_features=5)
+
+
+    model_pipe = Pipeline([('one_hot_encoding', onehot_enc),
+                            ('random_forest', forest_model)])
+
+    model_pipe.fit(X_train, y_train)
+
+    # Make predictions
+    y_pred = model_pipe.predict(X_test)
+    y_pred_proba = model_pipe.predict_proba(X_test)[:, 1]
+
+    # Calculate and round metrics to 4 decimal places
+    metrics_dict = {
+        'accuracy_test': round(accuracy_score(y_test, y_pred), 4),
+        'precision_test': round(precision_score(y_test, y_pred), 4),
+        'recall_test': round(recall_score(y_test, y_pred), 4),
+        'roc_auc_test': round(roc_auc_score(y_test, y_pred_proba), 4),
+        'f1_score_test': round(f1_score(y_test, y_pred), 4)
+    }
+    mlflow.log_metrics(metrics_dict)
 
 # %%
-# Make predictions
-y_pred = model_pipe.predict(X_test)
-y_pred_proba = model_pipe.predict_proba(X_test)[:, 1]
-
-# Calculate and round metrics to 4 decimal places
-metrics_dict = {
-    'accuracy': round(accuracy_score(y_test, y_pred), 4),
-    'precision': round(precision_score(y_test, y_pred), 4),
-    'recall': round(recall_score(y_test, y_pred), 4),
-    'roc_auc': round(roc_auc_score(y_test, y_pred_proba), 4),
-    'f1_score': round(f1_score(y_test, y_pred), 4)
-}
 
 # Print metrics
 for metric, value in metrics_dict.items():

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/295567229866732935/e8d7f0e7f7ea404a8efa1bd5d5b98b43/artifacts
+end_time: 1725762746639
+entry_point_name: ''
+experiment_id: '295567229866732935'
+lifecycle_stage: active
+run_id: e8d7f0e7f7ea404a8efa1bd5d5b98b43
+run_name: upset-cow-304
+run_uuid: e8d7f0e7f7ea404a8efa1bd5d5b98b43
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1725762618645
+status: 4
+tags: []
+user_id: Tagui

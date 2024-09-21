@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/295567229866732935/813adfd1a694415bba17ae1e0f987f04/artifacts
+end_time: 1725762592360
+entry_point_name: ''
+experiment_id: '295567229866732935'
+lifecycle_stage: active
+run_id: 813adfd1a694415bba17ae1e0f987f04
+run_name: debonair-flea-900
+run_uuid: 813adfd1a694415bba17ae1e0f987f04
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1725762493917
+status: 4
+tags: []
+user_id: Tagui
