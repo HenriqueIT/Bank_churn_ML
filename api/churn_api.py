@@ -6,7 +6,8 @@ import pandas as pd
 app = FastAPI()
 
 # Load your pre-trained model
-model = pd.read_pickle("../model/churn_model.pkl")
+# model = pd.read_pickle("../model/churn_model.pkl")
+model = pd.read_pickle("model/churn_model.pkl")
 
 # Define a Pydantic model for input validation with an example
 class ChurnInput(BaseModel):

@@ -21,8 +21,9 @@ def single_prediction_page():
     is_active_member = st.selectbox('Is Active Member', ['Yes', 'No'])
     estimated_salary = st.number_input('Estimated Salary', min_value=0, value=100000)
 
-    # Hardcoded averages (got from the dataset)
-    data = pd.read_csv("../../data/Churn_Modelling.csv")
+    # Read the data to get the average
+    #data = pd.read_csv("../../data/Churn_Modelling.csv")
+    data = pd.read_csv("data/Churn_Modelling.csv")
 
     average_credit_score = round(data.loc[data['Geography'] == geography]['CreditScore'].mean(), 1)
     average_balance = round(data.loc[data['Geography'] == geography]['Balance'].mean(), 1)
