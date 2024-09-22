@@ -16,8 +16,11 @@ COPY . .
 # Expose the ports for Streamlit and FastAPI
 EXPOSE 8501 8000
 
-# Run both Streamlit and FastAPI using a shell script
-CMD ["sh", "./start_services.sh"]
+# # Run both Streamlit and FastAPI using a shell script
+# CMD ["sh", "./start_services.sh"]
+
+# Run only Streamlit using a shell script
+CMD ["sh", "./start_services_render.sh"]
 
 
 
