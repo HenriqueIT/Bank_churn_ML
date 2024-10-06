@@ -43,7 +43,7 @@ This project consists of 5 main steps:
 - The model using **Random Forest Classifier** was selected as the most appropriate in this case based on 3 reasons:
     - There were **no signs of overfitting or underfitting** and it has a good generalization performance.
     - The **accuracy, F1 score and the Area under the ROC curve** was the **highest** amongst the models used.
-    - The percentage of **False Negative** and **False Positive** were **lower** than other models (on the right size in the image):
+    - The percentage of **False Negative** and **False Positive** were **lower** than other models (on the right side in the image):
         - 46% classified as True Negative
         - 49% classified as True Positive
         - 1,1% classified as False Negative
