@@ -100,7 +100,20 @@ This project consists of 5 main steps:
 3. Data Infrastructure:
 
     - **Lake of Analytical Database**: Currently, the analysis relies on CSV files for input, which is not optimal for larger-scale data analysis. Instead, connecting to an analytical database (e.g., a data warehouse) would be more efficient as they are better suited for analysis and reporting.
-    
+
+## Conclusions:
+
+- The Churn Probability App was developed to deepen my understanding of Data Science tools and techniques. The project aimed to address a hypothetical business problem where the company´s churn rate stood at 20% and the goal was to propose actionable measures to reduce it.
+
+- The Random Forest model was selected as the best classifier based on its superior performance evalueated through accuracy, F1 score and the Area under the ROC curve. Additionally, it exhibited a lower rate of misclassification (False positive and False negative) compared to other models like Logistic Regression and XGBoost.
+
+- The analysis revealed that not all customers with high likelihood of churn need to be retained. It is crucial to focus on retaining profitable customers (qualified customers), which have a significant financial impanct on the company.
+
+- To reduce churn rate among qualified customers, 3 key actions were proposed:
+    1. Understand the reason of churn
+    2. Engage with them
+    3. Offer incentives
+
 
 ## Sources:
 
