@@ -22,7 +22,7 @@ def single_prediction_page():
     estimated_salary = st.number_input('Estimated Salary', min_value=0, value=100000)
 
     # Read the data to get the average
-    #data = pd.read_csv("../../data/Churn_Modelling.csv")
+    # data = pd.read_csv("../../data/Churn_Modelling.csv")
     data = pd.read_csv("data/Churn_Modelling.csv")
 
     average_credit_score = round(data.loc[data['Geography'] == geography]['CreditScore'].mean(), 1)

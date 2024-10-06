@@ -54,7 +54,33 @@ This project consists of 5 main steps:
     ![confusion_matrix](./assets/images/confusion_matrix.png)
     Confusion matrix showing the performance of each model in %
 
-- 
+## Analysis
+
+- Before we think about measures to take so as to reduce the churn rate, I broke this problem into small parts:
+
+    ![small_problems](./assets/images/churn_actions.JPG)
+
+    - **Scenario 1:** The clients which have **low likelihood of churn** are not a problem here because the goal is to come up with ideas to reduce churn.
+
+    - **Scenario 2:** The clients which have **high likelihood of churn and are not profitable** have limited impact on the revenue of the company. For this reason, we considered ok here.
+
+    - **Scenario 3:** The clients which have **high likelihood of churn and are profitable** have a huge financial impact on the company.
+
+    - The table might look like:
+
+        |  | Profitable customer | Non-profitable customer |
+        | -------- | -------- | -------- |
+        | **High prob. churn** | **Need actions !** | ok !| 
+        | **Low prob. churn** | ok ! | ok ! | 
+
+    
+    -  The **criterion** for **likelihood** and **profitable** varies for each company and should be evaluated carefully with your manager.
+
+- Measures that can be taken for scenario 3:
+
+
+
+
 
 
 
