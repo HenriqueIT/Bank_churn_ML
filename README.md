@@ -60,9 +60,9 @@ This project consists of 5 main steps:
 
     ![small_problems](./assets/images/churn_actions.JPG)
 
-    - **Scenario 1:** The clients which have **low likelihood of churn** are not a problem here because the goal is to come up with ideas to reduce churn.
+    - **Scenario 1:** The clients which have **low likelihood of churn** are not a problem here because the main goal is to reduce churn.
 
-    - **Scenario 2:** The clients which have **high likelihood of churn and are not profitable** have limited impact on the revenue of the company. For this reason, we considered ok here.
+    - **Scenario 2:** The clients which have **high likelihood of churn and are not profitable** have limited impact on the revenue of the company. For this reason, I considered ok here.
 
     - **Scenario 3:** The clients which have **high likelihood of churn and are profitable** have a huge financial impact on the company.
 
@@ -76,15 +76,32 @@ This project consists of 5 main steps:
     
     -  The **criterion** for **likelihood** and **profitable** varies for each company and should be evaluated carefully with your manager.
 
-- Measures that can be taken for scenario 3:
-
-
-
-
-
+- **Measures** that can be taken for **scenario 3**:
+    - **Step 1: Understand the reason of churn**
+        - Customer Insights: Analyze customer behavior patterns through data (purchase history, customer service interactions, etc.) to understand early signals of churn. Follow up with direct customer engagement (phone calls, emails) to gather qualitative insights on why they are leaving.
+    - **Step 2: Engage with them**
+        - Personalized Engagement: Deliver targeted content such as special offers, lifecycle updates, or promotions based on each customer’s individual preferences and past behaviors. Personalization can increase customer retention by showing that the company understands their needs.
+        - Ask for feedbacks to identify problems and improve user experice
+    - **Step 3: Offer incentives**
+        - Offer rewards programs or loyalty points to customers who engage with your business again. This can help foster long-term relationships and prevent future churn.
 
 
 ## Improvements
-    
-- churn (no info on time)
 
+1. Churn Definition:
+
+    - **Details of Churn:** The current analysis lacks a clear definition of churn, such as whether it's involuntary (e.g., account closures due to non-payment) or voluntary (e.g., customers leaving by choice).
+    - **Information on datetime:** It is challenging to get the churn rate in this case as there is no information on datetime. Usually, churn rate is given by dividing the number of churns by the number of customers at the begging of a specific time (can be week, month or year).
+
+2. Business Model Information:
+
+    - **Lack of Context on Revenue:** There is no information regarding how the bank generates revenue, which is crucial for creating retention strategy. Understanding the bank's business model would help in analyzing which customers are truly profitable and how their churn affects overall revenue.
+
+3. Data Infrastructure:
+
+    - **Lake of Analytical Database**: Currently, the analysis relies on CSV files for input, which is not optimal for larger-scale data analysis. Instead, connecting to an analytical database (e.g., a data warehouse) would be more efficient as they are better suited for analysis and reporting.
+    
+
+## Sources:
+
+- https://www.superoffice.com/blog/reduce-customer-churn/
